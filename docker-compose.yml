@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  project_name-php:
+  riverstart-php:
     image:       devilbox/php-fpm:8.1-work-0.123
     working_dir: /application
     environment:
@@ -13,7 +13,7 @@ services:
       - 9000
     restart:     unless-stopped
 
-  project_name-nginx:
+  riverstart-nginx:
     image: nginx
     ports:
       - 8888:80
@@ -22,7 +22,7 @@ services:
       - ${PWD}/configurations/nginx.conf:/etc/nginx/conf.d/default.conf:ro
       - ${PWD}/backend:/application
 
-  project_name-postgres:
+  riverstart-postgres:
     image:   postgres:13
     restart: always
     environment:
